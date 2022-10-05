@@ -1,7 +1,10 @@
 require('babel-register');
 require('babel-polyfill');
+require('dotenv').config()
 const HDWalletProvider = require('@truffle/hdwallet-provider');
-const privateKeyTest = '563ab9e801d9ddfed85980c03b926c2ba618f0d4deb3218622cc627630f51335';
+
+//const privateKeys = process.env.TESTNET_PRIVATE_KEY
+
 
 
 module.exports = {
@@ -15,9 +18,12 @@ module.exports = {
       provider: () => {
         // use private key
         return new HDWalletProvider({
+          //process.env.PRIVATE_KEY,
           //mnemonic,
           providerOrUrl: 'https://api.s0.b.hmny.io', 
           privateKeys: [privateKeyTest],
+         // process.env.TESTNET_PRIVATE_KEY
+       
 
           
         });
