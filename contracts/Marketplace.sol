@@ -253,6 +253,24 @@ contract Marketplace is  ERC721URIStorage {
         payable(seller).transfer(msg.value);
     }
 
+
+    function resellToken(uint256 tokenId, uint256 price) public payable {
+        require(
+            idToListedToken[tokenId].owner == msg.sender,
+            "Only item owner can perform this operation"
+        );
+        require(
+            msg.value == listingPrice,
+            "Price must be eqaul to listing price"
+        );
+        idToListedToken[tokenId].currentlyListed = false;
+        idToListedToken[tokenId].price = price;
+        idToListedToken[tokenId].seller = payable(msg.sender);
+        idToListedToken[tokenId].owner = payable(address(this));
+        _itemsSold.decrement();
+        _transfer(msg.sender, address(this), tokenId);
+    }
+
 } 
 
 
