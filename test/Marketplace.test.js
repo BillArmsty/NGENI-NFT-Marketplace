@@ -1,4 +1,11 @@
 const Marketplace = artifacts.require('./Marketplace.sol')
+// const { HRC721 } = require('harmony-marketplace-sdk')
+// import { PrivateKey, HarmonyShards, HRC20 } from 'harmony-marketplace-sdk'
+// const wallet = new PrivateKey(
+//   HarmonyShards.SHARD_0,
+//   '563ab9e801d9ddfed85980c03b926c2ba618f0d4deb3218622cc627630f51335'
+// )
+
 
 require('chai')
   .use(require('chai-as-promised'))
